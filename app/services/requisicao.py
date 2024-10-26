@@ -32,6 +32,5 @@ def credentials():
         #==> Dispondo credential na sessao
         if 'sp' not in st.session_state:
             st.session_state.sp = sp
-        
 
-    
+        st.session_state.sp

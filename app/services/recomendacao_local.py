@@ -20,13 +20,10 @@ def analyze_local_track(file_path):
 
 #==> Recomenda musicas semelhantes
 @st.cache_data
-def recommend_based_on_audio_features(tempo, genero_da_musica='pop'):    
+def recommend_based_on_audio_features(tempo, genero_da_musica='pop'):  
+    sp = st.session_state.sp
     recommendations = sp.recommendations(seed_genres=[genero_da_musica], limit=100, target_tempo=tempo)
     return recommendations['tracks']
-
-#==> Verificando credenciais didponiveis
-if 'sp' in st.session_state:
-    sp = st.session_state.sp
 
 #==> Pesquisa e faz recomendacao
 def recomendacao_musica_local(): 

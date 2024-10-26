@@ -2,12 +2,12 @@
 import streamlit as st
 import time
 
-#==> Verificando credenciais didponiveis
-if 'sp' in st.session_state:
-    sp = st.session_state.sp
-
 #==> Recupera link da musica e fornece id para analise da api spotify
 def recomendacao_spotify_api():
+    #==> Verificando credenciais didponiveis
+    if 'sp' in st.session_state:
+        sp = st.session_state.sp
+    
     #==> Analisa o audio com api spotify
     @st.cache_data
     def get_audio_analysis(track_id):
